@@ -1,7 +1,7 @@
 // DOMEventsExercise
 
 // #1a
-const btn1 = document.getElementById(`one`);
+const button1 = document.getElementById(`one`);
 
 // #1b
 button1.onclick = function () {
@@ -19,12 +19,9 @@ h3.addEventListener(`mouseenter`, () => {
 const form = document.querySelector(`form`);
 
 // #3b
-form.addEventListener(`submit`,f => {
-    f.preventDefault();
-      const formInput = form.elements.quote.value;
-
-        alert(`${formInput}`);
-         form.elements.quote.value = ``;
+form.addEventListener(`submit`,() => {
+  alert(`${form.elements.quote.value}`);
+         
 });
 
 // BONUS
@@ -33,13 +30,26 @@ form.addEventListener(`submit`,f => {
 const darkMode =document.querySelector(`#dm`);
 
 // #4b
+const everything = document.querySelectorAll(`*`);
 darkMode.addEventListener(`click`, () => {
-   
-    
-  });
+  for (elements of everything){
+    elements.classList.toggle(`dark-mode`);
+  }
+});
 
 // #5a
+const reality = document.querySelector(`#reality`);
 
+// #5b
+let clickCount = 0;
+reality.addEventListener(`click`, () => {
+  clickCount++;
+  if (clickCount < 3){
+    alert("You have successfully moved to another reality");
+  } else if (clickCount === 3){
+    alert("OH NO! You can only move to a new another reality a couple times. You are stuck in this reality!");
+  }
+});
 
 
 
